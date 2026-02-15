@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.2 on win32)" generated="20240928 15:20:16.253" rpa="false" schemaversion="3">
+<suite id="s1" name="Login test" source="D:\RobotProject\tests\Login_test.robot">
+<test id="s1-t1" name="Verify Login With Valid Credentials" line="20">
+<kw name="Go To Application">
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240928 15:20:16.506" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000018CEFF18650&gt;</msg>
+<status status="PASS" starttime="20240928 15:20:16.505" endtime="20240928 15:20:16.506"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${INCIGNITO}' == 'True'</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--incognito</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240928 15:20:16.506" endtime="20240928 15:20:16.506"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${HEADLESS}' == 'True'</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240928 15:20:16.506" endtime="20240928 15:20:16.506"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20240928 15:20:16.506" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20240928 15:20:16.506" endtime="20240928 15:20:17.653"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20240928 15:20:17.653" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<status status="PASS" starttime="20240928 15:20:17.653" endtime="20240928 15:20:20.158"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240928 15:20:20.159" endtime="20240928 15:20:20.184"/>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<arg>10</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20240928 15:20:20.184" endtime="20240928 15:20:20.186"/>
+</kw>
+<status status="PASS" starttime="20240928 15:20:16.505" endtime="20240928 15:20:20.186"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserName_xpath}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240928 15:20:20.187" level="INFO">Typing text 'Admin' into text field 'xpath://input[@placeholder='Username']'.</msg>
+<status status="PASS" starttime="20240928 15:20:20.186" endtime="20240928 15:20:20.598"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PassWord_xpath}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240928 15:20:20.613" level="INFO">Typing text 'admin123' into text field 'xpath://input[@placeholder='Password']'.</msg>
+<status status="PASS" starttime="20240928 15:20:20.598" endtime="20240928 15:20:20.715"/>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<arg>${UserName_xpath}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240928 15:20:20.715" endtime="20240928 15:20:20.747"/>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<arg>${PassWord_xpath}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240928 15:20:20.747" endtime="20240928 15:20:20.781"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${LoginButton_xpath}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240928 15:20:20.781" level="INFO">Clicking button 'xpath://button[@type='submit']'.</msg>
+<status status="PASS" starttime="20240928 15:20:20.781" endtime="20240928 15:20:20.873"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240928 15:20:22.873" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240928 15:20:20.873" endtime="20240928 15:20:22.873"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${Dashboard_Xpath}</arg>
+<arg>Dashboard</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20240928 15:20:22.919" level="INFO">Element 'xpath://h6[normalize-space()='Dashboard']' contains text 'Dashboard'.</msg>
+<status status="PASS" starttime="20240928 15:20:22.873" endtime="20240928 15:20:22.919"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240928 15:20:24.919" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240928 15:20:22.919" endtime="20240928 15:20:24.919"/>
+</kw>
+<kw name="Tear Down">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20240928 15:20:24.919" endtime="20240928 15:20:31.094"/>
+</kw>
+<status status="PASS" starttime="20240928 15:20:24.919" endtime="20240928 15:20:31.094"/>
+</kw>
+<doc>This test case verifies that a user can log in with valid credentials.</doc>
+<tag>test001</tag>
+<status status="PASS" starttime="20240928 15:20:16.505" endtime="20240928 15:20:31.094"/>
+</test>
+<test id="s1-t2" name="Verify Login with Invalid Credentials" line="34">
+<kw name="Go To Application">
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240928 15:20:31.094" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000018CEFF463D0&gt;</msg>
+<status status="PASS" starttime="20240928 15:20:31.094" endtime="20240928 15:20:31.094"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${INCIGNITO}' == 'True'</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--incognito</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240928 15:20:31.094" endtime="20240928 15:20:31.094"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${HEADLESS}' == 'True'</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240928 15:20:31.094" endtime="20240928 15:20:31.094"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20240928 15:20:31.094" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20240928 15:20:31.094" endtime="20240928 15:20:32.223"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20240928 15:20:32.223" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<status status="PASS" starttime="20240928 15:20:32.223" endtime="20240928 15:20:55.170"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240928 15:20:55.170" endtime="20240928 15:20:55.198"/>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<arg>10</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20240928 15:20:55.198" endtime="20240928 15:20:55.199"/>
+</kw>
+<status status="PASS" starttime="20240928 15:20:31.094" endtime="20240928 15:20:55.199"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserName_xpath}</arg>
+<arg>aaaaaa</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240928 15:20:55.200" level="INFO">Typing text 'aaaaaa' into text field 'xpath://input[@placeholder='Username']'.</msg>
+<status status="PASS" starttime="20240928 15:20:55.200" endtime="20240928 15:20:55.922"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PassWord_xpath}</arg>
+<arg>aaaaaa</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240928 15:20:55.922" level="INFO">Typing text 'aaaaaa' into text field 'xpath://input[@placeholder='Password']'.</msg>
+<status status="PASS" starttime="20240928 15:20:55.922" endtime="20240928 15:20:56.012"/>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<arg>${UserName_xpath}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240928 15:20:56.012" endtime="20240928 15:20:56.045"/>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<arg>${PassWord_xpath}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240928 15:20:56.045" endtime="20240928 15:20:56.072"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${LoginButton_xpath}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240928 15:20:56.073" level="INFO">Clicking button 'xpath://button[@type='submit']'.</msg>
+<status status="PASS" starttime="20240928 15:20:56.072" endtime="20240928 15:20:57.883"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240928 15:20:59.883" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240928 15:20:57.883" endtime="20240928 15:20:59.883"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${Invalidcredentials_xpath}</arg>
+<arg>Invalid credentials</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20240928 15:20:59.891" level="INFO">Element 'xpath://p[@class='oxd-text oxd-text--p oxd-alert-content-text']' contains text 'Invalid credentials'.</msg>
+<status status="PASS" starttime="20240928 15:20:59.883" endtime="20240928 15:20:59.891"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240928 15:21:01.892" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240928 15:20:59.891" endtime="20240928 15:21:01.892"/>
+</kw>
+<kw name="Tear Down">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20240928 15:21:01.892" endtime="20240928 15:21:08.030"/>
+</kw>
+<status status="PASS" starttime="20240928 15:21:01.892" endtime="20240928 15:21:08.030"/>
+</kw>
+<doc>This test case verifies that a user cannot log in with invalid credentials.</doc>
+<tag>test002</tag>
+<status status="PASS" starttime="20240928 15:20:31.094" endtime="20240928 15:21:08.030"/>
+</test>
+<test id="s1-t3" name="Verify Login with Empty Username" line="48">
+<kw name="Go To Application">
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240928 15:21:08.030" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000018CEFF49150&gt;</msg>
+<status status="PASS" starttime="20240928 15:21:08.030" endtime="20240928 15:21:08.030"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${INCIGNITO}' == 'True'</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--incognito</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240928 15:21:08.030" endtime="20240928 15:21:08.030"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${HEADLESS}' == 'True'</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240928 15:21:08.030" endtime="20240928 15:21:08.030"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20240928 15:21:08.030" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20240928 15:21:08.030" endtime="20240928 15:21:09.175"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20240928 15:21:09.176" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<status status="PASS" starttime="20240928 15:21:09.175" endtime="20240928 15:21:12.885"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240928 15:21:12.885" endtime="20240928 15:21:12.915"/>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<arg>10</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20240928 15:21:12.915" endtime="20240928 15:21:12.916"/>
+</kw>
+<status status="PASS" starttime="20240928 15:21:08.030" endtime="20240928 15:21:12.916"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PassWord_xpath}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240928 15:21:12.917" level="INFO">Typing text 'admin123' into text field 'xpath://input[@placeholder='Password']'.</msg>
+<status status="PASS" starttime="20240928 15:21:12.917" endtime="20240928 15:21:13.540"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${PassWord_xpath}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20240928 15:21:13.556" level="INFO">Element 'xpath://input[@placeholder='Password']' is displayed.</msg>
+<status status="PASS" starttime="20240928 15:21:13.540" endtime="20240928 15:21:13.556"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${LoginButton_xpath}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240928 15:21:13.556" level="INFO">Clicking button 'xpath://button[@type='submit']'.</msg>
+<status status="PASS" starttime="20240928 15:21:13.556" endtime="20240928 15:21:13.626"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240928 15:21:15.626" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240928 15:21:13.626" endtime="20240928 15:21:15.626"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${Required_xpath}</arg>
+<arg>Required</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20240928 15:21:15.642" level="INFO">Element 'xpath://span[text()='Required']' contains text 'Required'.</msg>
+<status status="PASS" starttime="20240928 15:21:15.626" endtime="20240928 15:21:15.642"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240928 15:21:17.642" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240928 15:21:15.642" endtime="20240928 15:21:17.642"/>
+</kw>
+<kw name="Tear Down">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20240928 15:21:17.642" endtime="20240928 15:21:23.786"/>
+</kw>
+<status status="PASS" starttime="20240928 15:21:17.642" endtime="20240928 15:21:23.786"/>
+</kw>
+<doc>This test case verifies that a user cannot log in with an empty username.</doc>
+<tag>test003</tag>
+<status status="PASS" starttime="20240928 15:21:08.030" endtime="20240928 15:21:23.786"/>
+</test>
+<test id="s1-t4" name="Verify Login with Empty Password" line="60">
+<kw name="Go To Application">
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240928 15:21:23.786" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000018CEFF4B890&gt;</msg>
+<status status="PASS" starttime="20240928 15:21:23.786" endtime="20240928 15:21:23.786"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${INCIGNITO}' == 'True'</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--incognito</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240928 15:21:23.786" endtime="20240928 15:21:23.786"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${HEADLESS}' == 'True'</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240928 15:21:23.786" endtime="20240928 15:21:23.786"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20240928 15:21:23.786" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20240928 15:21:23.786" endtime="20240928 15:21:24.931"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20240928 15:21:24.931" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<status status="PASS" starttime="20240928 15:21:24.931" endtime="20240928 15:21:27.749"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240928 15:21:27.749" endtime="20240928 15:21:27.773"/>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<arg>10</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20240928 15:21:27.775" endtime="20240928 15:21:27.776"/>
+</kw>
+<status status="PASS" starttime="20240928 15:21:23.786" endtime="20240928 15:21:27.777"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserName_xpath}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240928 15:21:27.778" level="INFO">Typing text 'Admin' into text field 'xpath://input[@placeholder='Username']'.</msg>
+<status status="PASS" starttime="20240928 15:21:27.777" endtime="20240928 15:21:28.336"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${UserName_xpath}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20240928 15:21:28.351" level="INFO">Element 'xpath://input[@placeholder='Username']' is displayed.</msg>
+<status status="PASS" starttime="20240928 15:21:28.336" endtime="20240928 15:21:28.351"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${LoginButton_xpath}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240928 15:21:28.351" level="INFO">Clicking button 'xpath://button[@type='submit']'.</msg>
+<status status="PASS" starttime="20240928 15:21:28.351" endtime="20240928 15:21:28.435"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240928 15:21:30.436" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240928 15:21:28.436" endtime="20240928 15:21:30.436"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${Required_xpath}</arg>
+<arg>Required</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20240928 15:21:30.460" level="INFO">Element 'xpath://span[text()='Required']' contains text 'Required'.</msg>
+<status status="PASS" starttime="20240928 15:21:30.436" endtime="20240928 15:21:30.460"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240928 15:21:32.460" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240928 15:21:30.460" endtime="20240928 15:21:32.460"/>
+</kw>
+<kw name="Tear Down">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20240928 15:21:32.460" endtime="20240928 15:21:38.627"/>
+</kw>
+<status status="PASS" starttime="20240928 15:21:32.460" endtime="20240928 15:21:38.627"/>
+</kw>
+<doc>This test case verifies that a user cannot log in with an empty password.</doc>
+<tag>test004</tag>
+<status status="PASS" starttime="20240928 15:21:23.786" endtime="20240928 15:21:38.627"/>
+</test>
+<test id="s1-t5" name="Verify “Forgot your password?” Link" line="72">
+<kw name="Go To Application">
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240928 15:21:38.627" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000018CEFF5C9D0&gt;</msg>
+<status status="PASS" starttime="20240928 15:21:38.627" endtime="20240928 15:21:38.627"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${INCIGNITO}' == 'True'</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--incognito</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240928 15:21:38.627" endtime="20240928 15:21:38.627"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${HEADLESS}' == 'True'</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240928 15:21:38.627" endtime="20240928 15:21:38.627"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20240928 15:21:38.627" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20240928 15:21:38.627" endtime="20240928 15:21:39.686"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20240928 15:21:39.686" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<status status="PASS" starttime="20240928 15:21:39.686" endtime="20240928 15:22:20.580"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240928 15:22:20.580" endtime="20240928 15:22:20.607"/>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<arg>10</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20240928 15:22:20.607" endtime="20240928 15:22:20.607"/>
+</kw>
+<status status="PASS" starttime="20240928 15:21:38.627" endtime="20240928 15:22:20.607"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240928 15:22:22.607" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240928 15:22:20.607" endtime="20240928 15:22:22.607"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${ForgotPassword_xpath}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20240928 15:22:22.616" level="INFO">Element 'xpath:(//p[normalize-space()='Forgot your password?'])[1]' is displayed.</msg>
+<status status="PASS" starttime="20240928 15:22:22.607" endtime="20240928 15:22:22.616"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ForgotPassword_xpath}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240928 15:22:22.633" level="INFO">Clicking element 'xpath:(//p[normalize-space()='Forgot your password?'])[1]'.</msg>
+<status status="PASS" starttime="20240928 15:22:22.631" endtime="20240928 15:22:25.663"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${ResetPassword_xpath}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20240928 15:22:27.229" level="INFO">Element 'xpath://h6[normalize-space()='Reset Password']' is displayed.</msg>
+<status status="PASS" starttime="20240928 15:22:25.664" endtime="20240928 15:22:27.229"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${ResetPassword_xpath}</arg>
+<arg>Reset Password</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20240928 15:22:27.251" level="INFO">Element 'xpath://h6[normalize-space()='Reset Password']' contains text 'Reset Password'.</msg>
+<status status="PASS" starttime="20240928 15:22:27.230" endtime="20240928 15:22:27.251"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240928 15:22:29.251" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240928 15:22:27.251" endtime="20240928 15:22:29.251"/>
+</kw>
+<kw name="Tear Down">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20240928 15:22:29.251" endtime="20240928 15:22:35.429"/>
+</kw>
+<status status="PASS" starttime="20240928 15:22:29.251" endtime="20240928 15:22:35.429"/>
+</kw>
+<doc>This test case verifies that the “Forgot your password?” link redirects to the password recovery page.</doc>
+<tag>test005</tag>
+<status status="PASS" starttime="20240928 15:21:38.627" endtime="20240928 15:22:35.429"/>
+</test>
+<test id="s1-t6" name="Verify Password zField Masking" line="84">
+<kw name="Go To Application">
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240928 15:22:35.429" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000018CEFF47110&gt;</msg>
+<status status="PASS" starttime="20240928 15:22:35.429" endtime="20240928 15:22:35.429"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${INCIGNITO}' == 'True'</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--incognito</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240928 15:22:35.429" endtime="20240928 15:22:35.429"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${HEADLESS}' == 'True'</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240928 15:22:35.429" endtime="20240928 15:22:35.429"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20240928 15:22:35.429" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20240928 15:22:35.429" endtime="20240928 15:22:36.539"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20240928 15:22:36.539" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<status status="PASS" starttime="20240928 15:22:36.539" endtime="20240928 15:22:39.478"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240928 15:22:39.478" endtime="20240928 15:22:39.504"/>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<arg>10</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20240928 15:22:39.504" endtime="20240928 15:22:39.504"/>
+</kw>
+<status status="PASS" starttime="20240928 15:22:35.429" endtime="20240928 15:22:39.504"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240928 15:22:40.504" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20240928 15:22:39.504" endtime="20240928 15:22:40.504"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${PassWord_xpath}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20240928 15:22:40.528" level="INFO">Element 'xpath://input[@placeholder='Password']' is displayed.</msg>
+<status status="PASS" starttime="20240928 15:22:40.504" endtime="20240928 15:22:40.528"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${PassWord_xpath}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20240928 15:22:40.529" level="INFO">Typing password into text field 'xpath://input[@placeholder='Password']'.</msg>
+<msg timestamp="20240928 15:22:40.568" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20240928 15:22:40.617" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20240928 15:22:40.528" endtime="20240928 15:22:40.617"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${type_value}</var>
+<arg>${PassWord_xpath}</arg>
+<arg>type</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20240928 15:22:40.617" level="WARN">Keyword 'Get Element Attribute' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Get Element Attribute' or 'XML.Get Element Attribute'.</msg>
+<msg timestamp="20240928 15:22:40.647" level="INFO">${type_value} = password</msg>
+<status status="PASS" starttime="20240928 15:22:40.617" endtime="20240928 15:22:40.647"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${type_value}</arg>
+<arg>password</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20240928 15:22:40.647" endtime="20240928 15:22:40.648"/>
+</kw>
+<kw name="Tear Down">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20240928 15:22:40.648" endtime="20240928 15:22:46.881"/>
+</kw>
+<status status="PASS" starttime="20240928 15:22:40.648" endtime="20240928 15:22:46.881"/>
+</kw>
+<doc>Verify that the password entered in the Password field is masked.</doc>
+<tag>test006</tag>
+<status status="PASS" starttime="20240928 15:22:35.429" endtime="20240928 15:22:46.881"/>
+</test>
+<status status="PASS" starttime="20240928 15:20:16.253" endtime="20240928 15:22:46.882"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">test001</stat>
+<stat pass="1" fail="0" skip="0">test002</stat>
+<stat pass="1" fail="0" skip="0">test003</stat>
+<stat pass="1" fail="0" skip="0">test004</stat>
+<stat pass="1" fail="0" skip="0">test005</stat>
+<stat pass="1" fail="0" skip="0">test006</stat>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="Login test">Login test</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20240928 15:22:40.617" level="WARN">Keyword 'Get Element Attribute' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Get Element Attribute' or 'XML.Get Element Attribute'.</msg>
+</errors>
+</robot>

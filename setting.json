@@ -1,0 +1,11 @@
+{
+    "robot.language-server.python": "python",
+    "robot.language-server.args": [
+      "--log-level",
+      "debug"
+    ],
+    "robot.pythonpath": [
+      "C:/Users/sanka/AppData/Local/Programs/Python/Python311/Scripts"
+    ]
+  }
+  
